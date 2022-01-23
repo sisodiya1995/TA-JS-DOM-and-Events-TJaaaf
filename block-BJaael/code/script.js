@@ -8,9 +8,9 @@ for(let i = 1; i <= 500 ; i++){
  divParent.append(div)
 }
 
-let grid = document.querySelectorAll(".grid");
+let allBoxes = document.querySelectorAll(".grid");
 
- grid.forEach((p) =>{
+/* grid.forEach((p) =>{
     
     p.addEventListener('mouseover', function(){
         let r = Math.random() * 256;
@@ -23,32 +23,70 @@ let grid = document.querySelectorAll(".grid");
 
 })   
 
-grid.forEach((p) =>{
+ grid.forEach((p) =>{
 
     p.addEventListener('mouseover', function(){
      let randomNumber = Math.floor(Math.random() * 500)
        return p.innerHTML=randomNumber;
     });
 
-})   
+})    
 
 
-divParent.addEventListener('mouseover' ,function(){
-/*
-  let random = grid.forEach((p) =>{
+ divParent.addEventListener('mousemove' ,function(){
+
+  return grid.forEach((p) =>{
     
-        p.addEventListener('mouseover', function(){
+        p.addEventListener('mousemove', function(){
             let r = Math.random() * 256;
             let g = Math.random() * 256;
             let b= Math.random() * 256;
            let randonColor = `rgb(${r},${g},${b})`;
-           return p.style.backgroundColor = randonColor;
+           p.style.backgroundColor = randonColor;
         
         });
     
     })
    
-   return ;  */
-  return grid;
+   
+  
+
+}); */
+
+
+// Random color 
+ function getRandomColor(max = 265) {
+  let r = Math.random() * max;
+  let g = Math.random() * max;
+  let b= Math.random() * max;
+ let randonColor =`rgb(${r} ,${g} ,${b})`;
+
+ return randonColor;
+
+}
+
+// Random number
+
+ function getRandomNumber(max){
+ let randomNum = Math.floor(Math.random() * max);
+  return randomNum;
+}
+function handleMouseMove() {
+
+  // for all boxes random background color
+allBoxes.forEach((box) => {
+
+box.style.backgroundColor = getRandomColor();
 
 });
+
+// for all boxes random number
+allBoxes.forEach((box) =>{
+
+  box.innerHTML= getRandomNumber(500);
+})
+
+
+}
+
+divParent.addEventListener('mousemove' ,handleMouseMove);
