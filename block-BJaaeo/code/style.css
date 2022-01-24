@@ -1,0 +1,11 @@
+.parent{
+    display: flex;
+}
+.equal{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 700;
+}
